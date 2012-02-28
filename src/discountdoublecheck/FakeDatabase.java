@@ -15,6 +15,7 @@ import java.util.Random;
 public class FakeDatabase {
     
     private static Random generator = new Random();
+    public static ArrayList customers;
     public static ArrayList products;
     public static ArrayList discounts;
         
@@ -29,6 +30,11 @@ public class FakeDatabase {
         cal.add(Calendar.DAY_OF_MONTH, addDays);
         java.util.Date endDate = cal.getTime();
         int discountAmount = generator.nextInt(15);
+        
+        customers = new ArrayList();
+        customers.add(new Customer("C001", "Kody", "Weisman"));
+        customers.add(new Customer("C002", "Matthew", "Wiegert"));
+        customers.add(new Customer("C003", "Jacob", "Koutsky"));
         
         products = new ArrayList();
         products.add(new Object[]{"A100", "Hat", 19.99D});
