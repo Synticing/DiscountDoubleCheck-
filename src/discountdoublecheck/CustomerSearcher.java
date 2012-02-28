@@ -17,7 +17,7 @@ public class CustomerSearcher {
         
         for(int i = 0; i < array.length; i++){
             
-            if(((Customer)array[i]).getCustomerNo().equals(customerId)){
+            if(((Customer)array[i]).getCustomerNo().equalsIgnoreCase(customerId)){
                 
                 customer = ((Customer)array[i]);
                 break;

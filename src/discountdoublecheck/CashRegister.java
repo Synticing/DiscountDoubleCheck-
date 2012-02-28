@@ -14,6 +14,7 @@ import java.util.List;
 public class CashRegister {
     
     private boolean isSaleStarted = false;
+    private CustomerSearcher cLookup;
     private ProductSearcher pLookup;
     private DiscountSearcher dLookup;
     private Customer[] customers = new Customer[0];
@@ -21,6 +22,7 @@ public class CashRegister {
     
     public CashRegister(){
         
+        cLookup = new CustomerSearcher();
         pLookup = new ProductSearcher();
         dLookup = new DiscountSearcher();
         
@@ -28,7 +30,7 @@ public class CashRegister {
     
      public void startNewSale(String customerNo){
          
-         //receipts = addReceipt(new Receipt(getCustomer(customerNo)));
+         receipts = addReceipt(new Receipt(cLookup.getCustomerById(customerNo)));
          isSaleStarted = true;
              
      }
