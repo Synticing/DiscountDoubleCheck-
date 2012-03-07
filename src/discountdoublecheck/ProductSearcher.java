@@ -10,18 +10,21 @@ package discountdoublecheck;
  */
 public class ProductSearcher {
     
-    public Inventory getProductById(String productName){
+    public Inventory getProductById(String prodId){
         
         Inventory product = null;
         Object[] array = FakeDatabase.products.toArray();
         
-        for(int i = 0; i > array.length; i++){
+        for(int i = 0; i < array.length; i++){
             
-            if(((Object[])array[i])[0].equals(productName)){
+            Object[] innerArray = ((Object[])array[i]);
+            String pId = (String)innerArray[0];
+            
+            if(pId.equalsIgnoreCase(prodId)){
                 
-               String productId = ((Object[])array[i])[0].toString();
-               String productNo = ((Object[])array[i])[1].toString();
-               double productPrice = Double.valueOf(((Object[])array[i])[2].toString());
+               String productId = pId;
+               String productNo = innerArray[1].toString();
+               double productPrice = Double.valueOf(innerArray[2].toString());
                    
                product = new Product(productId, productNo, productPrice);
                

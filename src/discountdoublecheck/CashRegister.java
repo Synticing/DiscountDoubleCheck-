@@ -30,7 +30,7 @@ public class CashRegister {
     
      public void startNewSale(String customerNo){
          
-         receipts = addReceipt(new Receipt(cLookup.getCustomerById(customerNo)));
+         addReceipt(new Receipt(cLookup.getCustomerById(customerNo)));
          isSaleStarted = true;
              
      }
@@ -58,11 +58,12 @@ public class CashRegister {
          
      }
      
-     private Receipt[] addReceipt(Receipt newReceipt){
+     private void addReceipt(Receipt newReceipt){
         
         Receipt[] temp = new Receipt[receipts.length + 1];
+        System.arraycopy(receipts, 0, temp, 0, receipts.length);
         temp[receipts.length] = newReceipt;
-        return temp;
+        receipts = temp;
         
     }
     

@@ -21,15 +21,16 @@ public class Receipt {
     
     public void addProduct(Inventory product, int qty){
         
-        lines = addLineItem(new LineItem(product, qty));
+        addLineItem(new LineItem(product, qty));
         
     }
     
-    private LineItem[] addLineItem(LineItem newLine){
+    private void addLineItem(LineItem newLine){
         
         LineItem[] temp = new LineItem[lines.length + 1];
+        System.arraycopy(lines, 0, temp, 0, lines.length);
         temp[lines.length] = newLine;
-        return temp;
+        lines = temp;
         
     }
     

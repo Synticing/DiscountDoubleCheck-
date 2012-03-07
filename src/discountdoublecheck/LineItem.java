@@ -29,8 +29,8 @@ public class LineItem {
     public String toString(){
         
         return product.getProductId() + "\t" + product.getName() + "\t" +
-                String.valueOf(qty) + String.valueOf(product.getRetailPrice()) +
-                "\t" + String.valueOf(product.getDiscountAmount()) + "\t" + 
+                String.valueOf(qty) + "\t\t" + String.valueOf(product.getRetailPrice()) +
+                "\t\t" + String.valueOf(product.getDiscountAmount()) + "\t\t" + 
                 String.valueOf(subTotal);
     }
     

@@ -13,7 +13,7 @@ public class Product implements Inventory {
     private String productId;
     private String productName;
     private double productPrice;
-    private ProductDiscount[] discounts;
+    private ProductDiscount[] discounts = new ProductDiscount[0];
     
     public Product (String productId, String productName, double productPrice){
         
@@ -38,7 +38,7 @@ public class Product implements Inventory {
     
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return productName;
     }
 
     @Override
@@ -50,6 +50,7 @@ public class Product implements Inventory {
     public void applyDiscount(ProductDiscount discount) {
         
         ProductDiscount[] temp = new ProductDiscount[discounts.length + 1];
+        System.arraycopy(discounts, 0, temp, 0, discounts.length);
         temp[discounts.length] = discount;
         discounts = temp;
         

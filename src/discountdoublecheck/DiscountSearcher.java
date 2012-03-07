@@ -14,7 +14,7 @@ public class DiscountSearcher {
         
         Object[] array = FakeDatabase.discounts.toArray();
         
-        for(int i = 0; i > array.length; i++){
+        for(int i = 0; i < array.length; i++){
             
             if(((ProductDiscount)array[i]).isEligable(product, qty))
                 product.applyDiscount(((ProductDiscount)array[i]));

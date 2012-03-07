@@ -22,9 +22,9 @@ public class FakeDatabase {
     static{
         
         Calendar cal = Calendar.getInstance();
-        double perc = generator.nextDouble() / 4;
-        int subDays = generator.nextInt() * -1;
-        int addDays = generator.nextInt();
+        double perc = generator.nextDouble() * 100;
+        int subDays = generator.nextInt(365) * -1;
+        int addDays = generator.nextInt(365);
         cal.add(Calendar.DAY_OF_MONTH, subDays);
         java.util.Date startDate = cal.getTime();
         cal.add(Calendar.DAY_OF_MONTH, addDays);
